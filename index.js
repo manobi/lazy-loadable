@@ -1,7 +1,3 @@
-/**
- * Lazyload component
- * IE &  edge: https://msdn.microsoft.com/en-us/ie/dn369270(v=vs.94)
- */
 const opts = {
   // The root to use for intersection.
   // If not provided, use the top-level documentÃ¢â‚¬â„¢s viewport.

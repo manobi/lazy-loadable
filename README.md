@@ -44,7 +44,7 @@ The native way to tell the browser to delay the image loading until it's in the 
 
 ***lazyload="1"***
 
-It seems Microsoft implemented on IE 11 and Edge 12 a [unofficial attribute](https://caniuse.com/#feat=lazyload) called lazyload.
+It seems [Microsoft](https://msdn.microsoft.com/en-us/ie/dn369270(v=vs.94)) implemented on IE 11 and Edge 12 a [unofficial attribute](https://caniuse.com/#feat=lazyload) called lazyload.
 But it does not work the same way as "loading=lazy", it only tell the browser to decrese the priority of the resource. Actually it's pretty similar to what "importance=low" does.
 
 ***importance="low"***
