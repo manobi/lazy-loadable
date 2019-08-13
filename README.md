@@ -31,20 +31,21 @@ The whole idea is to create a copy-past boilerplate that works today. If by a mi
 
 ***is="lazy-loadable"***
 
-Apply the lazy-loadable custom element pollyfill behaviour to your image tag.
+Apply the lazy-loadable custom element pollyfill behaviour to your image tag. 
+Usually people loop over all images on a page (querySelectorAll('img.lazy').forEach), to decide if it should lazy load, it can be slow, you have to wait until the DOM is ready or put your script at end of body, it would not work if a image appears in document after the document have loaded, like in infinity scrolling or lazy rendering. Using custom elements the browser handles all of it for you.
 
 ***loading="lazy"***
 
-The native way to tell the browser to delay the image loading until it's in the screen. Only Google Chrome have [shipped it yet](https://caniuse.com/#feat=loading-lazy-attr).
+The native way to tell the browser to delay the image loading, until it's in the screen. Only Google Chrome have [shipped it yet](https://caniuse.com/#feat=loading-lazy-attr).
 
 ***lazyload="1"***
 
-It seems [Microsoft](https://msdn.microsoft.com/en-us/ie/dn369270(v=vs.94)) implemented on IE 11 and Edge 12 a [unofficial attribute](https://caniuse.com/#feat=lazyload) called lazyload.
-But it does not work the same way as "loading=lazy", it only tell the browser to decrese the priority of the resource. Actually it's pretty similar to what "importance=low" does.
+It seems [Microsoft](https://msdn.microsoft.com/en-us/ie/dn369270(v=vs.94)) implemented on IE 11 and Edge 12 a [unofficial attribute](https://caniuse.com/#feat=lazyload) called "lazyload".
+But it does not work the same way as "loading=lazy", it only tell the browser to decrese the loading priority of the resource. Actually it's pretty similar to what "importance=low" does.
 
 ***importance="low"***
 
-This is a [spec proposal](https://wicg.github.io/priority-hints/) to enabling developers to signal the priority of each resource they need to download. In case a browser vendor never implement the "native lazy load", but for any reason ship the priority hints support, we would at least download the image without high priority.
+This is a [spec proposal](https://wicg.github.io/priority-hints/) to enable developers to signal the priority of each resource they need to download. In case a browser vendor never implement the "native lazy load", but for any reason ships the **priority hints** support, we would at least download the image without high priority.
 
 ***srcset***
 Since there is no ways yet to know if the browser have native support before images starts loading we need to set a placeholder image.
@@ -58,7 +59,7 @@ Explicitally declare the image size to avoid page jumps.
 
 ## Safari custom elements pollyfill
 
-Apple have chosen to not ship a complete implementation of Custom elements V1, in order for it to work in Safari I recomend placing the [ungap pollyfill](https://github.com/ungap/custom-elements-builtin) before your scripts:
+Apple have chosen to not ship a complete implementation of custom elements V1, in order for it to work in Safari you may have to use the [ungap pollyfill](https://github.com/ungap/custom-elements-builtin) before your scripts:
 
 ```html
 <script>
@@ -71,7 +72,7 @@ Apple have chosen to not ship a complete implementation of Custom elements V1, i
 ````
 
 ## Install
-If your prefer to bundle the pollyfill yourself or use with a framework:
+If you prefer to bundle the pollyfill yourself or use with a framework:
 
 ```shell
 npm install lazy-loadable -s
