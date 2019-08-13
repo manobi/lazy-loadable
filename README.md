@@ -1,19 +1,15 @@
 # Native lazy load boilerplate
 
-* 🧱 Pollyfill for modern browsers not supporting it yet
+* 🧱 Pollyfill for modern browsers
 * 👵 Gracefully degrades for old browsers
 * 🤖 Future proof markup
 * 🚉 Using the platform
 
-The whole idea is to create a copy-past boilerplate that works today. If by a miracle all browser vendors agree to ship native lazy load, you would **only have to change one place**.
+The whole idea is to create a copy-past boilerplate that works today. If by a miracle all browser vendors agree to ship "native lazy load", you would **only have to change one place**.
 
-```
-npm install lazy-loadable
-```
 
 ## Boilerplate
 ```html
-<!-- 1. Markup -->
 <img 
     is="lazy-loadable" 
     loading="lazy" 
@@ -25,14 +21,13 @@ npm install lazy-loadable
     height="400" 
     alt=""
 >
-<!-- 2. Img HTML extension -->
 <script type="module">
-    import LazyLoadable from 'lazy-loadable';
+    import LazyLoadable from 'https://cdn.pika.dev/lazy-loadable';
     customElements.define('lazy-loadable', LazyLoadable, { extends: "img" });
 </script>
 ```
 
-## Img Attributes breakdown
+## Attributes breakdown
 
 ***is="lazy-loadable"***
 
@@ -74,6 +69,18 @@ Apple have chosen to not ship a complete implementation of Custom elements V1, i
     document.write('<script src="//unpkg.com/document-register-element"><\x2fscript>');
 </script>
 ````
+
+## Install
+If your prefer to bundle the pollyfill yourself or use with a framework:
+
+```shell
+npm install lazy-loadable -s
+```
+
+```javascript
+import LazyLoadable from 'lazy-loadable';
+customElements.define('lazy-loadable', LazyLoadable, { extends: "img" });
+```
 
 ## License
 
