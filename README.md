@@ -32,7 +32,7 @@ The whole idea is to create a copy-past boilerplate that works today. If by a mi
 ***is="lazy-loadable"***
 
 Apply the lazy-loadable custom element pollyfill behaviour to your image tag. 
-Usually people loop over all images on a page (querySelectorAll('img.lazy').forEach), to decide if it should lazy load, it can be slow, you have to wait until the DOM is ready or put your script at end of body, it would not work if a image appears in document after the document have loaded, like in infinity scrolling or lazy rendering. Using custom elements the browser handles all of it for you.
+Usually people loop over all images on a page (querySelectorAll('img.lazy').forEach), to decide if it should lazy load, it can be very slow, you also have to wait until the DOM is ready or put your script at end of body, it would not work if a image appears in document after the document have loaded, like in infinity scrolling or lazy rendering. Using custom elements the browser handles all of it for you.
 
 ***loading="lazy"***
 
@@ -48,7 +48,7 @@ But it does not work the same way as "loading=lazy", it only tell the browser to
 This is a [spec proposal](https://wicg.github.io/priority-hints/) to enable developers to signal the priority of each resource they need to download. In case a browser vendor never implement the "native lazy load", but for any reason ships the **priority hints** support, we would at least download the image without high priority.
 
 ***srcset***
-Since there is no ways yet to know if the browser have native support before images starts loading we need to set a placeholder image.
+Since there is no ways yet to know [if the browser have native support](https://bugs.chromium.org/p/chromium/issues/detail?id=949365) before images starts loading we need to set a placeholder image.
 
 Our placeholder is the one responsible for the magic. I've chosen to use srcset as placeholder instead of a infamous "data-src". By placing the placeholder on "srcattr", we can hold the "src" loading, until we are sure if the browser handles lazy by default. In future if all browsers support native lazy-load, all you would have to do is remove this attribute from your html.
 
@@ -59,7 +59,7 @@ Explicitally declare the image size to avoid page jumps.
 
 ## Safari custom elements pollyfill
 
-Apple have chosen to not ship a complete implementation of custom elements V1, in order for it to work in Safari you may have to use the [ungap pollyfill](https://github.com/ungap/custom-elements-builtin) before your scripts:
+Apple have chosen [to not ship](https://github.com/w3c/webcomponents/issues/509) a complete implementation of custom elements V1, in order for it to work in Safari you may have to use the [ungap pollyfill](https://github.com/ungap/custom-elements-builtin) before your scripts:
 
 ```html
 <script>
@@ -72,7 +72,7 @@ Apple have chosen to not ship a complete implementation of custom elements V1, i
 ````
 
 ## Install
-If you prefer to bundle the pollyfill yourself or use with a framework:
+If you prefer to bundle the pollyfill yourself or use it with a framework:
 
 ```shell
 npm install lazy-loadable -s
