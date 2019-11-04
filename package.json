@@ -1,6 +1,6 @@
 {
   "name": "lazy-loadable",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Boilerplate for creating lazy-loadable images.",
   "type": "module",
   "main": "index.js",
