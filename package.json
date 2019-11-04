@@ -6,7 +6,10 @@
   "main": "index.js",
   "module": "index.js",
   "license": "MIT",
-  "repository": "manobi/native-lazy-load-boilerplate",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/manobi/lazy-loadable.git"
+  },
   "files": [
     "index.js",
     "package.json",
