@@ -43,10 +43,10 @@ export default class LazyLoadable extends HTMLImageElement {
       return io.observe(this);
     }
     // default behaviour is to eagerly load the image
-    loadSrc(this);
+    loadSrc(this, io);
   }
 
   disconnectedCallback(){
-    //io.unobserve(this);
+    io.unobserve(this);
   }
 }
