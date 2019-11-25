@@ -47,6 +47,6 @@ export default class LazyLoadable extends HTMLImageElement {
   }
 
   disconnectedCallback(){
-    io.unobserve(this);
+    //io.unobserve(this);
   }
 }
